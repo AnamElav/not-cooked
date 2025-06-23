@@ -30,7 +30,11 @@ export default function TaskInput() {
         onClick={handleSubmit}
         className="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700"
       >
-        {isLoading ? "Thinking..." : "Break Down Tasks"}
+        {isLoading && (
+          <div className="text-center animate-pulse text-sm">
+            🧠 Thinking really hard... breaking your tasks into tiny steps...
+          </div>
+        )}
       </button>
       {parsedTasks.length > 0 && (
         <div className="mt-4">
