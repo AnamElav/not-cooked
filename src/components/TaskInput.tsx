@@ -68,6 +68,10 @@ export default function TaskInput() {
         className="w-full p-3 border rounded-lg shadow"
         rows={4}
       />
+      <p className="text-xs text-gray-500">
+        Try including time, context, or goal (e.g., "watch 45min lecture" →
+        better suggestions!)
+      </p>
 
       <button
         onClick={handleSubmit}

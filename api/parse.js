@@ -35,7 +35,16 @@ Steps:
 - Step 2
 - Step 3
 
-Only include the task breakdowns — no commentary or intros.`,
+Only include the task breakdowns — no commentary or intros.
+
+For each task step, offer guidance on how to approach it if relevant.
+
+Example 1:
+Instead of "Take notes", say:
+"Write down 3 key takeaways and 2 questions you still have."
+
+Example 2:
+Instead of "Write email to X", generate a template for the email.`,
             },
             {
               role: "user",
