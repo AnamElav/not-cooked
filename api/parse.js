@@ -13,18 +13,22 @@ export default async function handler(req, res) {
         {
           role: "system",
           content:
-            "You help people break vague todo tasks into small actionable steps.",
+            "You are a productivity assistant that helps break vague to-do lists into clear, short, actionable steps. Do not include explanations or headers — just return a list of steps, one per line.",
         },
         {
           role: "user",
-          content: `Break down: ${input}`,
+          content: `Break this into smaller tasks:\n\n${input}`,
         },
       ],
     }),
   });
 
   const data = await response.json();
-  const tasks = data.choices[0].message.content;
+  const content = data.choices[0].message.content;
+  const tasks = content
+    .split("\n")
+    .map((line) => line.replace(/^[-*\d.]+\s*/, "").trim())
+    .filter(Boolean);
 
   res.status(200).json({ tasks: tasks.split("\n").filter(Boolean) });
 }

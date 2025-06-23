@@ -22,7 +22,7 @@ export default function TaskInput() {
       <textarea
         value={taskDump}
         onChange={(e) => setTaskDump(e.target.value)}
-        placeholder="Dump your tasks here (e.g., laundry, email Alex, study notes)"
+        placeholder="Dump your tasks here (e.g., laundry, email professor, study notes)"
         className="w-full p-3 border rounded-lg shadow"
         rows={4}
       />
@@ -33,11 +33,19 @@ export default function TaskInput() {
         {isLoading ? "Thinking..." : "Break Down Tasks"}
       </button>
       {parsedTasks.length > 0 && (
-        <ul className="list-disc pl-6">
-          {parsedTasks.map((t, i) => (
-            <li key={i}>{t}</li>
-          ))}
-        </ul>
+        <div className="mt-4">
+          <h2 className="text-xl font-semibold mb-2">🧠 Broken Down Tasks</h2>
+          <ul className="space-y-2">
+            {parsedTasks.map((task, i) => (
+              <li
+                key={i}
+                className="bg-indigo-100 border-l-4 border-indigo-500 p-3 rounded shadow-sm text-sm font-medium"
+              >
+                {task}
+              </li>
+            ))}
+          </ul>
+        </div>
       )}
     </div>
   );
