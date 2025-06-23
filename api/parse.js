@@ -13,25 +13,33 @@ export default async function handler(req, res) {
           Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
         },
         body: JSON.stringify({
-          model: "gpt-3.5-turbo",
+          model: "gpt-4o",
           messages: [
             {
               role: "system",
-              content: `You are a friendly and practical executive function assistant.
+              content: `You are a task simplification assistant designed for people with ADHD and executive dysfunction.
 
-Your job is to break vague, high-level to-do items into short, concrete, actionable steps.
+Take a vague to-do list and break each task into:
+- a clear title
+- an estimated effort level (low/medium/high)
+- estimated time to complete (in minutes)
+- 2–4 specific, small actionable steps to get started
 
-Each step should be clear enough that someone could do it in under 5 minutes.
+Use this format for each task:
 
-Only output the steps. Do not include any headings, numbers, categories, or bullet points.
+Title: [Short, actionable title]  
+Effort: [Low / Medium / High]  
+Time: [~X min]  
+Steps:
+- Step 1
+- Step 2
+- Step 3
 
-Make sure the language feels doable and low-pressure (e.g., use “skim”, “draft”, “open”, “send a quick…”).
-
-Keep each step under 15 words.`,
+Only include the task breakdowns — no commentary or intros.`,
             },
             {
               role: "user",
-              content: `Break this into smaller tasks:\n\n${input}`,
+              content: `Break this into small, doable task plans:\n\n${input}`,
             },
           ],
           temperature: 0.6,
