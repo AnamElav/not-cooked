@@ -17,12 +17,21 @@ export default async function handler(req, res) {
           messages: [
             {
               role: "system",
-              content:
-                "You are a productivity assistant that helps break vague to-do lists into clear, short, actionable steps. Do not include explanations or headers — just return a list of steps, one per line",
+              content: `You are a friendly and practical executive function assistant.
+
+Your job is to break vague, high-level to-do items into short, concrete, actionable steps.
+
+Each step should be clear enough that someone could do it in under 5 minutes.
+
+Only output the steps. Do not include any headings, numbers, categories, or bullet points.
+
+Make sure the language feels doable and low-pressure (e.g., use “skim”, “draft”, “open”, “send a quick…”).
+
+Keep each step under 15 words.`,
             },
             {
               role: "user",
-              content: input,
+              content: `Break this into smaller tasks:\n\n${input}`,
             },
           ],
           temperature: 0.6,
