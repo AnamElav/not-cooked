@@ -23,7 +23,7 @@ Take a vague to-do list and break each task into:
 - a clear title
 - an estimated effort level (low/medium/high)
 - estimated time to complete (in minutes)
-- 2–4 specific, small actionable steps to get started
+- 2–5 specific, small actionable steps to get started
 
 Use this format for each task:
 
@@ -37,7 +37,7 @@ Steps:
 
 Only include the task breakdowns — no commentary or intros.
 
-For each task step, offer guidance on how to approach it if relevant.
+For each task step, offer detailed guidance on how to approach it if relevant. You can skip common sense steps, like "open device".
 
 Example 1:
 Instead of "Take notes", say:
